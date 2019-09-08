@@ -22,6 +22,8 @@ You can go to the published website after 15–20 seconds
 
 This site is published at [https://fvarrui.github.io/website-demo/](https://fvarrui.github.io/website-demo/).
 
+> Link to the used HTML template: [Ziggy](https://www.free-css.com/free-css-templates/page244/ziggy).
+
 ### 5. Adding CNAME to GitHub repo
 
 First of all, you’ll need to add a CNAME file to your GitHub repo. Now, just as adding a normal file.
