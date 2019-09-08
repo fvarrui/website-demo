@@ -1,2 +1,3 @@
-# website-demo
-Demo of publishing a website on GitHub
+# WebSite Demo
+
+Demo of publishing a static website on GitHub.
