@@ -1,42 +1,44 @@
-# WebSite publishing demo
+# Cómo publicar un sitio web estático en GitHub
 
-Demo of publishing a static website on GitHub.
+Pasos para publicar un sitio web estático con GitHub Pages y vincularlo a un proveedor de DNS.
 
-## Steps 
+### 1. Crear un respositorio
 
-### 1. Create repository
+El primer paso es crear un repositorio para el sitio web que queremos publicar.
 
-The first step is to create the repository for the website you wish to publish.
+### 2. Subir el código
 
-### 2. Push your code
+El fichero HTML con nombre `index.html` se publicará como la página de inicio (o página por defecto). Si no existe el fichero `index.html`, buscará el fichero `README.md` y se renderizará y publicará el fichero Markdown como página de inicio.
 
-The HTML file with name `index.html` will be published as the home page. If there is no `index.html` file, then it searches for `README.md` file and that markdown file will be published as the homepage.
+### 3. Publicar el repositorio mediante GitHub Pages
 
-### 3. Publish GitHub Page
+Pulsar en la pestaña `Settings`, bajar hasta la sección `GitHub Pages` y seleccionar `master branch`.
 
-Click on the settings tab, scroll down to `GitHub Pages` section and select `master branch`.
+### 4. Ir al sitio web
 
-### 4. Go to website
+Unos 15 ó 20 segundos después podremos acceder al sitio web publicado.
 
-You can go to the published website after 15–20 seconds
+El sitio se publicará en la dirección [https://<github.username>.github.io/<repo.name>](https://<github.username>.github.io/<repo.name>), donde `github.username` será nuestro usuario de GitHub y `repo.name` el nombre del repositorio (en mi caso es [https://fvarrui.github.io/website-demo/](https://fvarrui.github.io/website-demo/)).
 
-This site is published at [https://fvarrui.github.io/website-demo/](https://fvarrui.github.io/website-demo/).
+> Enlace a la plantilla HTML utilizada como ejemplo: [Ziggy](https://www.free-css.com/free-css-templates/page244/ziggy).
 
-> Link to the used HTML template: [Ziggy](https://www.free-css.com/free-css-templates/page244/ziggy).
+### 5. Añadir el fichero CNAME el repositorio de GitHub
 
-### 5. Adding CNAME to GitHub repo
+Para poder vincular nuestro nuevo sitio web con nuestro nombre de dominio (por ejemplo: `fvarrui.es`) tendremos que crear en el repositorio el fichero `CNAME` (sin extensión) y añadirle una línea con el nombre de dominio.
 
-First of all, you’ll need to add a CNAME file to your GitHub repo. Now, just as adding a normal file.
+En mi caso, el fichero `CNAME` tendrá el siguiente contenido:
 
-Create a new file called `CNAME` (without any extension) and in that file, add the domain name (eg. `fvarrui.es`) then commit and push the changes.
+```
+fvarrui.es
+```
 
-### 6. Adding A Records with your DNS provider
+### 6. Añadir los registros A mediante nuestro proveedor de DNS
 
-This step (adding A record) will be done on the side of your DNS provider.
+Este paso (añadir registros A) se hará en el lado del proveedor de DNS.
 
-In this step we will be creating an `ALIAS` or `ANAME` record, or simply, `A` record that points to the IP (or domain) of GitHub Pages server.
+Tendremos que crear un registro `ALIAS` o `ANAME`, o simplemente, un registro `A` que apunte a la dirección IP (o dominio) del servidor de GitHub Pages.
 
-Doing this is very simple, all you need to do is find a section on the website of your domain name provider where you can add A records. Generally this section itself is called DNS. Once you find it, add the following IP addresses in the `Points To` field.
+Todo lo que necesitamos es encontrar una sección en el sitio web de nuestro proveedor de nombre de dominio donde añadir los registros `A`, y a continuación añadimos las siguientes direcciones IP:
 
 ```
 185.199.108.153
@@ -45,11 +47,4 @@ Doing this is very simple, all you need to do is find a section on the website o
 185.199.111.153
 ```
 
-For complete documentation on setting up an apex domain, [click here!](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider).
-
-
-
-
-
-
-
+Para más información consulta el siguiente [enlace](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider).
